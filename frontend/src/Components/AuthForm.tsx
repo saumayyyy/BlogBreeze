@@ -9,7 +9,7 @@ interface formType{
 }
 
 function AuthForm({type}:formType){
-    console.log("Control reaches here);
+    console.log("Control reaches here");
     const navigate = useNavigate();
     const [postInput,setPostInput] = useState<signUpValidation>({
         name:"",
@@ -28,7 +28,7 @@ function AuthForm({type}:formType){
             navigate("/blogs");
         }
         catch(e){
-            console.log("some error while sending request or in request)"
+            console.log("some error while sending request or in request")
         }
     }
 
