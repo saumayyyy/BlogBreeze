@@ -16,11 +16,12 @@ export const userRouter = new Hono<{
 }>();
 
 userRouter.post("/signup",async (c)=>{
+  console.log("Inside Signin")
     const prisma = new PrismaClient({
         datasourceUrl: c.env.DATABASE_URL,
       }).$extends(withAccelerate())
 
-
+      console.log("prisma connected")
     const body = await c.req.json();
     const {success} = signUpValidation.safeParse(body);
     if(!success){
@@ -29,6 +30,7 @@ userRouter.post("/signup",async (c)=>{
         msg:"Inputs are not Valid",
       })
     }
+    console.log("Validated")
     try{
       const alreadyExist = await prisma.user.findUnique({
         where:{
