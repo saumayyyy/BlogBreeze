@@ -21,7 +21,7 @@ function AuthForm({type}:formType){
     
     async function sendRequest(){
         try{
-            console.log(sending request);
+            console.log("sending request");
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type==="signup"?"signup":"signin"}`,postInput);
             const jwt = response.data;
             localStorage.setItem("token",jwt);
