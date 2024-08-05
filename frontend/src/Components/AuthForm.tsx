@@ -1,4 +1,4 @@
-import { signUpValidation } from "@2781xsaumayy/blog-common";
+import { signInValidation } from "@2781xsaumayy/blog-common";
 import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios";
@@ -11,7 +11,7 @@ interface formType{
 function AuthForm({type}:formType){
 
     const navigate = useNavigate();
-    const [postInput,setPostInput] = useState<signUpValidation>({
+    const [postInput,setPostInput] = useState<signInValidation>({
         name:"",
         email:"",
         password:""
