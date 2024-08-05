@@ -9,7 +9,7 @@ interface formType{
 }
 
 function AuthForm({type}:formType){
-
+    console.log("Control reaches here);
     const navigate = useNavigate();
     const [postInput,setPostInput] = useState<signUpValidation>({
         name:"",
@@ -17,16 +17,18 @@ function AuthForm({type}:formType){
         password:""
     })
 
-
+    console.log("Validation done");
+    
     async function sendRequest(){
         try{
+            console.log(sending request);
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type==="signup"?"signup":"signin"}`,postInput);
             const jwt = response.data;
             localStorage.setItem("token",jwt);
             navigate("/blogs");
         }
         catch(e){
-
+            console.log("some error while sending request or in request)"
         }
     }
 
